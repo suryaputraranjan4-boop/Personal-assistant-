@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer Headphone Arch -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:pathData="M34,54 C34,36 40,28 54,28 C68,28 74,36 74,54" />
+    <!-- Anime Cat Ear Headband accouterments -->
+    <path
+        android:fillColor="#FFD1DC"
+        android:pathData="M38,36 L43,24 L49,32 Z" />
+    <path
+        android:fillColor="#FFD1DC"
+        android:pathData="M70,36 L65,24 L59,32 Z" />
+    <!-- Head silhouette -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,34 C43,34 38,43 38,55 C38,67 46,74 54,74 C62,74 70,67 70,55 C70,43 65,34 54,34 Z" />
+    <!-- Anime Hair bangs overlay -->
+    <path
+        android:fillColor="#FFE4EC"
+        android:pathData="M40,46 C42,52 46,55 49,53 C52,50 54,45 55,48 C57,51 61,54 64,52 C67,50 68,46 68,46 C68,40 62,34 54,34 C46,34 40,40 40,46 Z" />
+    <!-- Headphone Ear Cups -->
+    <path
+        android:fillColor="#FF4081"
+        android:pathData="M30,47 C30,44 34,44 34,47 L34,61 C34,64 30,64 30,61 Z" />
+    <path
+        android:fillColor="#FF4081"
+        android:pathData="M74,47 C74,44 78,44 78,47 L78,61 C78,64 74,64 74,61 Z" />
+    <!-- Ear cup glowing inner -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M31,50 C31,48 33,48 33,50 L33,58 C33,60 31,60 31,58 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M75,50 C75,48 77,48 77,50 L77,58 C77,60 75,60 75,58 Z" />
+    <!-- Headset Microphone arm & light -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M33,60 C33,67 42,72 49,71" />
+    <path
+        android:fillColor="#00E676"
+        android:pathData="M48,71 A2.5,2.5 0 1 0 48,66 A2.5,2.5 0 1 0 48,71 Z" />
+    <!-- Cute anime winking eye and smile -->
+    <!-- Left eye: open sparkling dot -->
+    <path
+        android:fillColor="#6C5CE7"
+        android:pathData="M46,59 A2,2.5 0 1 0 46,54 A2,2.5 0 1 0 46,59 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M45.5,56 A0.8,0.8 0 1 0 45.5,54.4 A0.8,0.8 0 1 0 45.5,56 Z" />
+    <!-- Right eye: cute winking arc -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#6C5CE7"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M60,57 C61.5,55 64.5,55 66,57" />
+    <!-- Cheerful sweet smile -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FF4081"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M52,65 C53.5,67 56.5,67 58,65" />
+    <!-- Blushing cheeks -->
+    <path
+        android:fillColor="#FF80AB"
+        android:pathData="M43,62 A3,1.5 0 1 0 43,59 A3,1.5 0 1 0 43,62 Z" />
+    <path
+        android:fillColor="#FF80AB"
+        android:pathData="M67,62 A3,1.5 0 1 0 67,59 A3,1.5 0 1 0 67,62 Z" />
+    <!-- Magic Sparkle Stars -->
+    <path
+        android:fillColor="#FFEB3B"
+        android:pathData="M78,26 L80,31 L85,33 L80,35 L78,40 L76,35 L71,33 L76,31 Z" />
+    <path
+        android:fillColor="#FFEB3B"
+        android:pathData="M27,68 L28,71 L31,72 L28,73 L27,76 L26,73 L23,72 L26,71 Z" />
+</vector>
