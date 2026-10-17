@@ -22,6 +22,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "Aimi AI"
+rootProject.name = "Kavya AI"
 
 include(":app")

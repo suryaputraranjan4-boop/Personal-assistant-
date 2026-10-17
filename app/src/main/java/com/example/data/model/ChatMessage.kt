@@ -4,7 +4,7 @@ import java.util.UUID
 
 enum class MessageSender {
     USER,
-    AIMI,
+    KAVYA,
     SYSTEM
 }
 

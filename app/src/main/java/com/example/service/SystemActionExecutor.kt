@@ -6,7 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
 import android.provider.Settings
-import com.example.data.model.AimiLanguage
+import com.example.data.model.KavyaLanguage
 import java.net.URLEncoder
 
 sealed class SystemAction {
@@ -251,9 +251,9 @@ object SystemActionExecutor {
     }
 
     /**
-     * Executes the system action via Android Intents or AimiAccessibilityService.
+     * Executes the system action via Android Intents or KavyaAccessibilityService.
      */
-    fun execute(action: SystemAction, language: AimiLanguage, context: Context): SystemActionResult {
+    fun execute(action: SystemAction, language: KavyaLanguage, context: Context): SystemActionResult {
         // Direct Intent Actions (YouTube, App Launches) work even if Accessibility Service is not yet turned on!
         when (action) {
             is SystemAction.YouTubeSearch -> {
@@ -295,8 +295,8 @@ object SystemActionExecutor {
                 }
 
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "यूट्यूब खोलकर '${query}' सर्च कर दिया है! 🎬🌸"
-                    AimiLanguage.HINGLISH -> "Haanji! YouTube open karke '${query}' search kar diya hai~ Dekhiye! ✨"
+                    KavyaLanguage.HINDI -> "यूट्यूब खोलकर '${query}' सर्च कर दिया है! 🎬🌸"
+                    KavyaLanguage.HINGLISH -> "Haanji! YouTube open karke '${query}' search kar diya hai~ Dekhiye! ✨"
                     else -> "Opening YouTube and searching for '${query}' right now! 🎬✨"
                 }
                 return SystemActionResult(executed = executed, spokenConfirmation = spoken)
@@ -317,8 +317,8 @@ object SystemActionExecutor {
                 }
 
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "यूट्यूब खोल दिया है! 🌸"
-                    AimiLanguage.HINGLISH -> "YouTube open kar diya hai! ✨"
+                    KavyaLanguage.HINDI -> "यूट्यूब खोल दिया है! 🌸"
+                    KavyaLanguage.HINGLISH -> "YouTube open kar diya hai! ✨"
                     else -> "Opening YouTube for you now! 🎬"
                 }
                 return SystemActionResult(executed = executed, spokenConfirmation = spoken)
@@ -355,14 +355,14 @@ object SystemActionExecutor {
 
                 val spoken = if (executed) {
                     when (language) {
-                        AimiLanguage.HINDI -> "${action.appName} खोल दिया है! 🌸"
-                        AimiLanguage.HINGLISH -> "${action.appName} open kar diya hai! ✨"
+                        KavyaLanguage.HINDI -> "${action.appName} खोल दिया है! 🌸"
+                        KavyaLanguage.HINGLISH -> "${action.appName} open kar diya hai! ✨"
                         else -> "Opening ${action.appName} for you! ✨"
                     }
                 } else {
                     when (language) {
-                        AimiLanguage.HINDI -> "मुझे ${action.appName} नहीं मिला। 🌸"
-                        AimiLanguage.HINGLISH -> "${action.appName} app nahi mila. 🌸"
+                        KavyaLanguage.HINDI -> "मुझे ${action.appName} नहीं मिला। 🌸"
+                        KavyaLanguage.HINGLISH -> "${action.appName} app nahi mila. 🌸"
                         else -> "I couldn't find ${action.appName} on this device."
                     }
                 }
@@ -390,8 +390,8 @@ object SystemActionExecutor {
                     }
                 }
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "गूगल पर '${query}' सर्च कर रही हूँ! 🌸"
-                    AimiLanguage.HINGLISH -> "Google par '${query}' search kar diya hai~ 🔍"
+                    KavyaLanguage.HINDI -> "गूगल पर '${query}' सर्च कर रही हूँ! 🌸"
+                    KavyaLanguage.HINGLISH -> "Google par '${query}' search kar diya hai~ 🔍"
                     else -> "Searching the web for '${query}' right now! 🔍"
                 }
                 return SystemActionResult(executed = executed, spokenConfirmation = spoken)
@@ -403,12 +403,12 @@ object SystemActionExecutor {
         }
 
         // Accessibility Service Check
-        val service = AimiAccessibilityService.instance
+        val service = KavyaAccessibilityService.instance
         if (service == null) {
             val guidance = when (language) {
-                AimiLanguage.HINDI -> "मुझे सिस्टम और टच कंट्रोल करने के लिए 'Aimi Hands' एक्सेसिबिलिटी परमिशन की ज़रूरत है! सेटिंग्स में 'Aimi AI' चालू करें। 🌸"
-                AimiLanguage.HINGLISH -> "Aimi Hands abhi off hai! Realistic touches ke liye settings mein jakar 'Aimi AI' accessibility allow karein~ ✨"
-                else -> "Aimi Hands is not enabled yet! Please turn on the Aimi Accessibility Service in Android Settings to grant gesture control~ ✨"
+                KavyaLanguage.HINDI -> "मुझे सिस्टम और टच कंट्रोल करने के लिए 'Kavya Hands' एक्सेसिबिलिटी परमिशन की ज़रूरत है! सेटिंग्स में 'Kavya AI' चालू करें। 🌸"
+                KavyaLanguage.HINGLISH -> "Kavya Hands abhi off hai! Realistic touches ke liye settings mein jakar 'Kavya AI' accessibility allow karein~ ✨"
+                else -> "Kavya Hands is not enabled yet! Please turn on the Kavya Accessibility Service in Android Settings to grant gesture control~ ✨"
             }
             return SystemActionResult(executed = false, spokenConfirmation = guidance)
         }
@@ -417,8 +417,8 @@ object SystemActionExecutor {
             is SystemAction.ScrollDown -> {
                 service.performScrollDown()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "ज़रूर! मैं नीचे स्क्रॉल कर रही हूँ~ 🌸"
-                    AimiLanguage.HINGLISH -> "Haanji! Niche scroll kar diya~ Dekhiye! ✨"
+                    KavyaLanguage.HINDI -> "ज़रूर! मैं नीचे स्क्रॉल कर रही हूँ~ 🌸"
+                    KavyaLanguage.HINGLISH -> "Haanji! Niche scroll kar diya~ Dekhiye! ✨"
                     else -> "Hai hai! Scrolling down for you smoothly~ 📜"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken)
@@ -426,8 +426,8 @@ object SystemActionExecutor {
             is SystemAction.ScrollUp -> {
                 service.performScrollUp()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "ऊपर स्क्रॉल कर दिया है! 🌸"
-                    AimiLanguage.HINGLISH -> "Upar scroll kar diya hai! ✨"
+                    KavyaLanguage.HINDI -> "ऊपर स्क्रॉल कर दिया है! 🌸"
+                    KavyaLanguage.HINGLISH -> "Upar scroll kar diya hai! ✨"
                     else -> "Scrolling up for you right now~ 📜"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken)
@@ -436,8 +436,8 @@ object SystemActionExecutor {
                 val metrics = service.resources.displayMetrics
                 service.performLongPress(metrics.widthPixels / 2f, metrics.heightPixels / 2f)
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "लॉन्ग प्रेस कर दिया है! 🌸"
-                    AimiLanguage.HINGLISH -> "Screen par realistic long press kar diya hai! 👆"
+                    KavyaLanguage.HINDI -> "लॉन्ग प्रेस कर दिया है! 🌸"
+                    KavyaLanguage.HINGLISH -> "Screen par realistic long press kar diya hai! 👆"
                     else -> "Executing a realistic long press gesture right now~ 👆"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken)
@@ -445,8 +445,8 @@ object SystemActionExecutor {
             is SystemAction.LongPressAndScrollUp -> {
                 service.performLongPressAndScrollUp()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "लॉन्ग प्रेस करके ऊपर ड्रैग कर दिया है! 🌸"
-                    AimiLanguage.HINGLISH -> "Long press karke smoothly upar scroll/drag kar diya~ ✨"
+                    KavyaLanguage.HINDI -> "लॉन्ग प्रेस करके ऊपर ड्रैग कर दिया है! 🌸"
+                    KavyaLanguage.HINGLISH -> "Long press karke smoothly upar scroll/drag kar diya~ ✨"
                     else -> "Holding down and dragging smoothly upward for you! 👆"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken)
@@ -455,14 +455,14 @@ object SystemActionExecutor {
                 val success = service.clickTargetPrecisely(action.targetName)
                 val spoken = if (success) {
                     when (language) {
-                        AimiLanguage.HINDI -> "'${action.targetName}' पर सटीकता से टच कर दिया है! 🌸"
-                        AimiLanguage.HINGLISH -> "Found '${action.targetName}'! Bilkul exact jagah par touch kar diya~ ✨"
+                        KavyaLanguage.HINDI -> "'${action.targetName}' पर सटीकता से टच कर दिया है! 🌸"
+                        KavyaLanguage.HINGLISH -> "Found '${action.targetName}'! Bilkul exact jagah par touch kar diya~ ✨"
                         else -> "Found '${action.targetName}' and tapped it precisely without touching anywhere else! ✨"
                     }
                 } else {
                     when (language) {
-                        AimiLanguage.HINDI -> "मुझे स्क्रीन पर '${action.targetName}' नहीं मिला। 🌸"
-                        AimiLanguage.HINGLISH -> "Screen par '${action.targetName}' nahi dikh raha hai. 🌸"
+                        KavyaLanguage.HINDI -> "मुझे स्क्रीन पर '${action.targetName}' नहीं मिला। 🌸"
+                        KavyaLanguage.HINGLISH -> "Screen par '${action.targetName}' nahi dikh raha hai. 🌸"
                         else -> "I couldn't safely find '${action.targetName}' on the active screen to avoid touching wrong areas."
                     }
                 }
@@ -471,8 +471,8 @@ object SystemActionExecutor {
             is SystemAction.Home -> {
                 service.triggerGlobalHome()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "होम स्क्रीन पर जा रही हूँ~ 🏠"
-                    AimiLanguage.HINGLISH -> "Chaliye home screen par chalte hain! 🏠"
+                    KavyaLanguage.HINDI -> "होम स्क्रीन पर जा रही हूँ~ 🏠"
+                    KavyaLanguage.HINGLISH -> "Chaliye home screen par chalte hain! 🏠"
                     else -> "Taking you to the Home screen now~ 🏠"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken)
@@ -480,8 +480,8 @@ object SystemActionExecutor {
             is SystemAction.Back -> {
                 service.triggerGlobalBack()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "पीछे जा रही हूँ~ ⬅️"
-                    AimiLanguage.HINGLISH -> "Back ja rahi hoon~ ⬅️"
+                    KavyaLanguage.HINDI -> "पीछे जा रही हूँ~ ⬅️"
+                    KavyaLanguage.HINGLISH -> "Back ja rahi hoon~ ⬅️"
                     else -> "Navigating back for you~ ⬅️"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken)
@@ -489,8 +489,8 @@ object SystemActionExecutor {
             is SystemAction.Recents -> {
                 service.triggerGlobalRecents()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "हालिया ऐप्स खोल रही हूँ~ 📱"
-                    AimiLanguage.HINGLISH -> "Recent apps open kar diye hain~ 📱"
+                    KavyaLanguage.HINDI -> "हालिया ऐप्स खोल रही हूँ~ 📱"
+                    KavyaLanguage.HINGLISH -> "Recent apps open kar diye hain~ 📱"
                     else -> "Opening recent apps for you~ 📱"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken)
@@ -498,8 +498,8 @@ object SystemActionExecutor {
             is SystemAction.Notifications -> {
                 service.triggerGlobalNotifications()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "सूचनाएं खोल रही हूँ~ 🔔"
-                    AimiLanguage.HINGLISH -> "Notification panel pull kar diya hai~ 🔔"
+                    KavyaLanguage.HINDI -> "सूचनाएं खोल रही हूँ~ 🔔"
+                    KavyaLanguage.HINGLISH -> "Notification panel pull kar diya hai~ 🔔"
                     else -> "Opening notification shade for you~ 🔔"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken)
@@ -508,8 +508,8 @@ object SystemActionExecutor {
                 val metrics = service.resources.displayMetrics
                 service.performRealisticDoubleTap(metrics.widthPixels / 2f, metrics.heightPixels / 2f)
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "डबल टैप कर दिया है! ✨"
-                    AimiLanguage.HINGLISH -> "Screen par realistic double-tap kar diya hai~ ✨"
+                    KavyaLanguage.HINDI -> "डबल टैप कर दिया है! ✨"
+                    KavyaLanguage.HINGLISH -> "Screen par realistic double-tap kar diya hai~ ✨"
                     else -> "Executed a realistic double-tap gesture for you! ✨"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken)
@@ -517,8 +517,8 @@ object SystemActionExecutor {
             is SystemAction.QuickSettings -> {
                 val success = service.triggerGlobalQuickSettings()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "त्वरित सेटिंग्स खोल रही हूँ~ ⚙️"
-                    AimiLanguage.HINGLISH -> "Quick Settings open kar diye hain~ ⚙️"
+                    KavyaLanguage.HINDI -> "त्वरित सेटिंग्स खोल रही हूँ~ ⚙️"
+                    KavyaLanguage.HINGLISH -> "Quick Settings open kar diye hain~ ⚙️"
                     else -> "Opening Quick Settings panel for you~ ⚙️"
                 }
                 SystemActionResult(executed = success, spokenConfirmation = spoken)
@@ -526,8 +526,8 @@ object SystemActionExecutor {
             is SystemAction.Screenshot -> {
                 val success = service.triggerGlobalScreenshot()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "स्क्रीनशॉट ले लिया है! 📸"
-                    AimiLanguage.HINGLISH -> "Screenshot capture kar liya hai! 📸"
+                    KavyaLanguage.HINDI -> "स्क्रीनशॉट ले लिया है! 📸"
+                    KavyaLanguage.HINGLISH -> "Screenshot capture kar liya hai! 📸"
                     else -> "Captured a screenshot of your screen! 📸"
                 }
                 SystemActionResult(executed = success, spokenConfirmation = spoken)
@@ -535,8 +535,8 @@ object SystemActionExecutor {
             is SystemAction.LockScreen -> {
                 val success = service.triggerGlobalLockScreen()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "स्क्रीन लॉक कर दी है! 🔒"
-                    AimiLanguage.HINGLISH -> "Screen lock kar di hai~ 🔒"
+                    KavyaLanguage.HINDI -> "स्क्रीन लॉक कर दी है! 🔒"
+                    KavyaLanguage.HINGLISH -> "Screen lock kar di hai~ 🔒"
                     else -> "Screen locked safely for you~ 🔒"
                 }
                 SystemActionResult(executed = success, spokenConfirmation = spoken)
@@ -544,8 +544,8 @@ object SystemActionExecutor {
             is SystemAction.ReadScreen -> {
                 val screenSummary = service.readScreenHierarchy()
                 val spoken = when (language) {
-                    AimiLanguage.HINDI -> "मैंने आपकी स्क्रीन स्कैन कर ली है! यहाँ सक्रिय चीजें हैं। 🔍"
-                    AimiLanguage.HINGLISH -> "Screen scan kar li hai! Main dekh sakti hoon kya chal raha hai~ 🔍"
+                    KavyaLanguage.HINDI -> "मैंने आपकी स्क्रीन स्कैन कर ली है! यहाँ सक्रिय चीजें हैं। 🔍"
+                    KavyaLanguage.HINGLISH -> "Screen scan kar li hai! Main dekh sakti hoon kya chal raha hai~ 🔍"
                     else -> "Screen shared and scanned! I can see all active elements on your screen right now~ 🔍"
                 }
                 SystemActionResult(executed = true, spokenConfirmation = spoken, screenContentSummary = screenSummary)

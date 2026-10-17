@@ -97,7 +97,7 @@ fun MessageItem(
         verticalAlignment = Alignment.Top
     ) {
         if (!isUser) {
-            // Aimi Avatar Badge
+            // Kavya Avatar Badge
             Box(
                 modifier = Modifier
                     .size(36.dp)
@@ -165,7 +165,7 @@ fun MessageItem(
                     }
                 }
             } else {
-                // Aimi Assistant Bubble
+                // Kavya Assistant Bubble
                 Card(
                     shape = RoundedCornerShape(topStart = 4.dp, topEnd = 18.dp, bottomStart = 18.dp, bottomEnd = 18.dp),
                     colors = CardDefaults.cardColors(
@@ -186,7 +186,7 @@ fun MessageItem(
                         ) {
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 Text(
-                                    text = "Aimi",
+                                    text = "Kavya",
                                     fontWeight = FontWeight.Bold,
                                     color = Color(0xFFD81B60),
                                     fontSize = 13.sp

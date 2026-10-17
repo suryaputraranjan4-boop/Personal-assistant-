@@ -67,12 +67,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.service.SystemAction
-import com.example.ui.viewmodel.AimiViewModel
+import com.example.ui.viewmodel.KavyaViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AimiScreenShareDialog(
-    viewModel: AimiViewModel,
+fun KavyaScreenShareDialog(
+    viewModel: KavyaViewModel,
     onRequestNativeScreenShare: () -> Unit,
     onDismiss: () -> Unit
 ) {
@@ -91,7 +91,7 @@ fun AimiScreenShareDialog(
         onDismissRequest = onDismiss,
         sheetState = sheetState,
         containerColor = MaterialTheme.colorScheme.surface,
-        modifier = Modifier.testTag("aimi_screen_share_bottom_sheet")
+        modifier = Modifier.testTag("kavya_screen_share_bottom_sheet")
     ) {
         Column(
             modifier = Modifier
@@ -127,7 +127,7 @@ fun AimiScreenShareDialog(
                     Spacer(modifier = Modifier.width(12.dp))
                     Column {
                         Text(
-                            text = "Aimi Screen Share & Control",
+                            text = "Kavya Screen Share & Control",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onSurface
@@ -188,7 +188,7 @@ fun AimiScreenShareDialog(
                                     color = MaterialTheme.colorScheme.onSurface
                                 )
                                 Text(
-                                    text = if (isScreenShareActive) "Aimi is capturing and visually analyzing live display frames."
+                                    text = if (isScreenShareActive) "Kavya is capturing and visually analyzing live display frames."
                                     else "Tap below to open Android's native screen share permission dialog.",
                                     fontSize = 11.sp,
                                     color = MaterialTheme.colorScheme.outline
@@ -290,7 +290,7 @@ fun AimiScreenShareDialog(
                                 color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
-                                text = if (isHandsConnected) actionStatus else "Enable 'Aimi AI' in Accessibility for simulated screen touch & scan.",
+                                text = if (isHandsConnected) actionStatus else "Enable 'Kavya AI' in Accessibility for simulated screen touch & scan.",
                                 fontSize = 11.sp,
                                 color = MaterialTheme.colorScheme.outline
                             )
@@ -485,9 +485,9 @@ fun AimiScreenShareDialog(
                         ),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .testTag("ask_aimi_about_screen_btn")
+                            .testTag("ask_kavya_about_screen_btn")
                     ) {
-                        Text("Ask Aimi to Explain This Screen 🌸", fontSize = 12.sp)
+                        Text("Ask Kavya to Explain This Screen 🌸", fontSize = 12.sp)
                     }
                 }
             }
@@ -510,7 +510,7 @@ fun AimiScreenShareDialog(
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = "Aimi scans screen nodes to find and tap the exact matching button or label",
+                        text = "Kavya scans screen nodes to find and tap the exact matching button or label",
                         fontSize = 11.sp,
                         color = MaterialTheme.colorScheme.outline
                     )

@@ -1,6 +1,6 @@
 {
-  "name": "Aimi AI",
-  "description": "Real-time AI voice assistant with cute anime female voice, speech hearing, and expressive visual companion.",
+  "name": "Kavya AI",
+  "description": "Real-time AI voice assistant with cute female voice, speech hearing, and expressive visual companion.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

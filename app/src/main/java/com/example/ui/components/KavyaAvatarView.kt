@@ -37,7 +37,7 @@ import kotlinx.coroutines.delay
 import kotlin.random.Random
 
 @Composable
-fun AimiAvatarView(
+fun KavyaAvatarView(
     assistantState: AssistantState,
     amplitude: Float,
     modifier: Modifier = Modifier,
@@ -102,7 +102,7 @@ fun AimiAvatarView(
     Box(
         modifier = modifier
             .size(size)
-            .testTag("aimi_avatar_view"),
+            .testTag("kavya_avatar_view"),
         contentAlignment = Alignment.Center
     ) {
         Canvas(modifier = Modifier.fillMaxSize()) {

@@ -138,7 +138,7 @@ class AudioPlayer(private val context: Context) {
         onCompletion: () -> Unit
     ): Boolean {
         return try {
-            val tempFile = File.createTempFile("aimi_speech_", ".wav", context.cacheDir)
+            val tempFile = File.createTempFile("kavya_speech_", ".wav", context.cacheDir)
             FileOutputStream(tempFile).use { it.write(audioBytes) }
             currentTempFile = tempFile
 

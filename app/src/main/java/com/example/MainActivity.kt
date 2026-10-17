@@ -8,9 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.ui.screens.AimiMainScreen
+import com.example.ui.screens.KavyaMainScreen
 import com.example.ui.theme.MyApplicationTheme
-import com.example.ui.viewmodel.AimiViewModel
+import com.example.ui.viewmodel.KavyaViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +19,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    val viewModel: AimiViewModel = viewModel()
-                    AimiMainScreen(viewModel = viewModel)
+                    val viewModel: KavyaViewModel = viewModel()
+                    KavyaMainScreen(viewModel = viewModel)
                 }
             }
         }

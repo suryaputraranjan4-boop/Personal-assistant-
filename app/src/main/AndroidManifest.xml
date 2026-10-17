@@ -35,7 +35,7 @@
             android:foregroundServiceType="mediaProjection" />
 
         <service
-            android:name=".service.AimiAccessibilityService"
+            android:name=".service.KavyaAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:exported="true">
             <intent-filter>

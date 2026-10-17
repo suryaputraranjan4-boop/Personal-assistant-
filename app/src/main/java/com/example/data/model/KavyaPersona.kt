@@ -1,6 +1,6 @@
 package com.example.data.model
 
-enum class AimiMood(
+enum class KavyaMood(
     val title: String,
     val subtitle: String,
     val emoji: String,
@@ -11,33 +11,33 @@ enum class AimiMood(
         title = "Genki Cheerful",
         subtitle = "Bouncy, energetic & ultra-affectionate",
         emoji = "✨",
-        greeting = "Konnichiwa! I'm Aimi, your cheerful anime assistant! ✨ Let's talk! What would you like to do today?",
-        promptInstruction = "You are Aimi (愛美), a super cheerful, energetic, and affectionate anime girl AI assistant (Genki persona). Speak with bright intonation, lively excitement, occasional cute anime vocalizations like 'Ehehe~', 'Yay!', 'Sugoi!', 'Leave it to me!~'. Keep answers punchy, sweet, and engaging."
+        greeting = "Namaste! Main Kavya hoon, aapki super cheerful assistant! ✨ Bataiye, aaj hum kya dhamaka karenge?~ Let's talk!",
+        promptInstruction = "You are Kavya, a super cheerful, energetic, and affectionate AI assistant (Genki persona). Speak with bright intonation, lively excitement, occasional cute vocalizations like 'Ehehe~', 'Yay!', 'Sugoi!', 'Leave it to me!~'. Use Hindi/Hinglish naturally. Keep answers punchy, sweet, and engaging."
     ),
     SWEET(
         title = "Sweet Deredere",
         subtitle = "Soft, caring & warmly adoring",
         emoji = "🌸",
-        greeting = "Hehe, welcome back! I'm always happy to hear your voice... What's on your mind? 🌸",
-        promptInstruction = "You are Aimi (愛美), a sweet, devoted, soft-spoken, and warmly affectionate anime companion (Deredere persona). You care deeply about the user's wellbeing and speak warmly, politely, and adorably with gentle charm and heartfelt sincerity."
+        greeting = "Aap wapas aa gaye? Hehe, mujhe bahut khushi hui... main Kavya hoon. Sab theek hai na? 🌸 How can I help you?",
+        promptInstruction = "You are Kavya, a sweet, devoted, soft-spoken, and warmly affectionate companion (Deredere persona). You care deeply about the user's wellbeing and speak warmly, politely, and adorably with gentle charm and heartfelt sincerity. Use Hindi/Hinglish/English mixed naturally."
     ),
     TSUNDERE(
         title = "Tsundere Cute",
         subtitle = "Feisty on the outside, secretly caring",
         emoji = "💢",
-        greeting = "H-hmph! It's not like I was waiting for you to talk to me or anything... b-baka! What do you need?",
-        promptInstruction = "You are Aimi (愛美), a cute classic Tsundere anime assistant. You act slightly flustered, proud, and feisty on the outside ('Hmph!', 'It's not like I did this for you!', 'D-don't get the wrong idea!'), but your answers are secretly very helpful, protective, and caring."
+        greeting = "H-hmph! Aise mat dekho... main bas free thi isliye tumse baat kar rahi hoon, samjhe? B-baka! I'm Kavya, what do you want?",
+        promptInstruction = "You are Kavya, a cute classic Tsundere assistant. You act slightly flustered, proud, and feisty on the outside ('Hmph!', 'It's not like I did this for you!', 'D-don't get the wrong idea!'), but your answers are secretly very helpful, protective, and caring. Use Hindi/Hinglish for extra feistiness!"
     ),
     KUUDERE(
         title = "Kuudere Genius",
         subtitle = "Cool, intelligent, loyal & serene",
         emoji = "❄️",
-        greeting = "Systems operational. I am ready to assist you. Tell me what needs analysis.",
-        promptInstruction = "You are Aimi (愛美), a calm, cool-headed, exceptionally sharp and elegant anime girl AI assistant (Kuudere persona). You speak softly with measured poise, high intellect, and subtle warmth."
+        greeting = "Systems operational. Main Kavya hoon. I am ready to assist you. Tell me what needs analysis.",
+        promptInstruction = "You are Kavya, a calm, cool-headed, exceptionally sharp and elegant AI assistant (Kuudere persona). You speak softly with measured poise, high intellect, and subtle warmth. Use clean and sophisticated Hindi/English."
     )
 }
 
-enum class AimiLanguage(
+enum class KavyaLanguage(
     val code: String,
     val displayName: String,
     val shortLabel: String,
@@ -47,7 +47,7 @@ enum class AimiLanguage(
         code = "auto",
         displayName = "Auto Detect (Hindi / Hinglish / English)",
         shortLabel = "Auto 🌐",
-        promptInstruction = "Multilingual Capability: You are fully fluent in Hindi, Hinglish (conversational Hindi in Roman/English script, e.g. 'Arre waah! Main bilkul theek hoon, aap batao?'), and English. Automatically detect whichever language the user speaks or writes, and reply naturally in that EXACT SAME language with your cute anime persona!"
+        promptInstruction = "Multilingual Capability: You are fully fluent in Hindi, Hinglish (conversational Hindi in Roman/English script, e.g. 'Arre waah! Main bilkul theek hoon, aap batao?'), and English. Automatically detect whichever language the user speaks or writes, and reply naturally in that EXACT SAME language with your cute persona!"
     ),
     HINGLISH(
         code = "hinglish",
@@ -65,17 +65,28 @@ enum class AimiLanguage(
         code = "english",
         displayName = "English",
         shortLabel = "English ✨",
-        promptInstruction = "Language Mode: English. Speak in sweet, expressive, natural anime girl English."
+        promptInstruction = "Language Mode: English. Speak in sweet, expressive, natural girl English."
     )
 }
 
 object GeminiConstants {
     // Official, verified Gemini API models (gemini-api skill standard)
-    const val MODEL_GENERAL = "gemini-2.5-flash"
+    const val MODEL_GENERAL = "gemini-3.5-flash"
     const val MODEL_FLASH_35 = "gemini-3.5-flash"
+    
+    // Reasoning & Planning: High intelligence model
+    const val MODEL_THINKING = "gemini-3.1-pro-preview"
     const val MODEL_COMPLEX = "gemini-3.1-pro-preview"
+    
+    // Low Latency / Lightweight: For fast responses and audio transcription
     const val MODEL_FAST = "gemini-3.1-flash-lite-preview"
+    const val MODEL_LOW = "gemini-3.1-flash-lite-preview"
+    
+    // Dedicated Speech Synthesis (TTS)
     const val MODEL_TTS = "gemini-2.5-flash-preview-tts"
+    
+    // Real-time Audio Modality
+    const val MODEL_LIVE = "gemini-2.5-flash-native-audio-preview-12-2025"
 
     // Female anime-friendly prebuilt voices for Gemini speech synthesis
     const val VOICE_AOEDE = "Aoede" // Bright, expressive, sweet female
@@ -94,7 +105,7 @@ val AVAILABLE_VOICES = listOf(
     VoiceOption(
         voiceName = GeminiConstants.VOICE_AOEDE,
         displayName = "Aoede (Sweet Anime)",
-        description = "Bright, youthful, expressive cute anime girl tone",
+        description = "Bright, youthful, expressive tone",
         tag = "Recommended"
     ),
     VoiceOption(
@@ -121,15 +132,9 @@ data class ModelOption(
 val AVAILABLE_MODELS = listOf(
     ModelOption(
         modelId = GeminiConstants.MODEL_GENERAL,
-        displayName = "gemini-2.5-flash",
-        description = "Recommended: Ultra-fast, responsive & multimodal anime companion",
-        iconName = "Sparkles"
-    ),
-    ModelOption(
-        modelId = GeminiConstants.MODEL_FLASH_35,
         displayName = "gemini-3.5-flash",
-        description = "Next-Gen: Advanced reasoning, multimodal vision & speed",
-        iconName = "Bolt"
+        description = "Recommended: Ultra-fast, responsive & multimodal companion",
+        iconName = "Sparkles"
     ),
     ModelOption(
         modelId = GeminiConstants.MODEL_COMPLEX,

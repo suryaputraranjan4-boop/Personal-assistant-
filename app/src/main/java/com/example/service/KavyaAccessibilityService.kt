@@ -15,14 +15,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class AimiAccessibilityService : AccessibilityService() {
+class KavyaAccessibilityService : AccessibilityService() {
 
-    private val tag = "AimiHandsService"
+    private val tag = "KavyaHandsService"
     private val mainHandler = Handler(Looper.getMainLooper())
 
     companion object {
-        private var _instance: AimiAccessibilityService? = null
-        val instance: AimiAccessibilityService? get() = _instance
+        private var _instance: KavyaAccessibilityService? = null
+        val instance: KavyaAccessibilityService? get() = _instance
 
         private val _isServiceActive = MutableStateFlow(false)
         val isServiceActive: StateFlow<Boolean> = _isServiceActive.asStateFlow()
@@ -38,8 +38,8 @@ class AimiAccessibilityService : AccessibilityService() {
         super.onServiceConnected()
         _instance = this
         _isServiceActive.value = true
-        _lastActionStatus.value = "Aimi Hands Connected & Ready ✨"
-        Log.i(tag, "Aimi Hands Accessibility Service Connected")
+        _lastActionStatus.value = "Kavya Hands Connected & Ready ✨"
+        Log.i(tag, "Kavya Hands Accessibility Service Connected")
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {

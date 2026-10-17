@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Aimi AI</string>
-    <string name="accessibility_service_description">Aimi Hands allows Aimi to perform precise gestures (realistic touches, scrolls, long-press) and read screen content to automate device controls on your command.</string>
+    <string name="app_name">Kavya AI</string>
+    <string name="accessibility_service_description">Kavya Hands allows Kavya to perform precise gestures (realistic touches, scrolls, long-press) and read screen content to automate device controls on your command.</string>
 </resources>

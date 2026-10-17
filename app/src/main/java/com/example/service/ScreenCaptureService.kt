@@ -188,7 +188,7 @@ class ScreenCaptureService : Service() {
             }, Handler(Looper.getMainLooper()))
 
             virtualDisplay = mp.createVirtualDisplay(
-                "AimiScreenCapture",
+                "KavyaScreenCapture",
                 captureWidth,
                 captureHeight,
                 density,
@@ -239,10 +239,10 @@ class ScreenCaptureService : Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
-                "Aimi Screen Sharing",
+                "Kavya Screen Sharing",
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = "Shows when Aimi AI is sharing or viewing your screen"
+                description = "Shows when Kavya AI is sharing or viewing your screen"
             }
             val nm = getSystemService(NotificationManager::class.java)
             nm.createNotificationChannel(channel)
@@ -251,8 +251,8 @@ class ScreenCaptureService : Service() {
 
     private fun buildForegroundNotification(): Notification {
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Aimi Screen Sharing Active")
-            .setContentText("Aimi AI has real-time visual screen access")
+            .setContentTitle("Kavya Screen Sharing Active")
+            .setContentText("Kavya AI has real-time visual screen access")
             .setSmallIcon(R.mipmap.ic_launcher)
             .setOngoing(true)
             .setPriority(NotificationCompat.PRIORITY_LOW)
